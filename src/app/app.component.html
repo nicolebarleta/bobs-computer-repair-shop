@@ -1,0 +1,38 @@
+<!---
+ ============================================
+; Title:  app.component.html
+; Author: Professor Krasso
+; Date: 01 March 2021
+; Modified By: Marie Nicole Barleta
+; Description: This is visible all throughout the application
+;===========================================
+-->
+
+<!-- The navigation with logo and customized toolbar -->
+<mat-toolbar class="toolbar">
+    <mat-toolbar-row>
+      <div class="logo">
+        <img src="./assets/bob_logo.png" height="80" />
+      </div>
+      <div style="width: 80%">
+        <div fxLayout="row wrap" fxLayoutAlign="end start">
+            <button mat-button routerLink="about">About Us</button>
+            <button mat-button routerLink="calculate-services">Calculate Services</button>
+            <button mat-button routerLink="home">Complete Order</button>
+            <button mat-button (click)="signOut()">Employee Sign Out</button>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div fxLayout="row wrap">
+    <div fxFlex>
+      <mat-card class="main-container">
+        <mat-card-title class="blue">{{ title }}</mat-card-title>
+        <br /><br />
+        <mat-card-content>
+          <!--All the components will show here -->
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

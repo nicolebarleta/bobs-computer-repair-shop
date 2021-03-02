@@ -1,0 +1,46 @@
+<!---
+ ============================================
+; Title:  invoice-details.component.html
+; Author: Professor Krasso
+; Date: 01 March 2021
+; Modified By: Marie Nicole Barleta
+; Description: This is where the invoice summary dialog located
+;===========================================
+-->
+
+
+<!--
+  ;The invoice summary contains of the date and
+  the itemized list of charged services.
+  ;The user will be able to save the invoice summary as PDF if they want
+  for printing and digital records.
+-->
+<mat-card>
+  <h3>INVOICE SUMMARY</h3>
+  <p>Date: {{ this.invoiceDate | date }}</p>
+  <mat-card-content>
+    <div fxLayout="column">
+      <table>
+
+        <tr *ngFor="let item of service">
+          <td>{{ item.name }} </td>
+          <td>{{ item.price | currency}} </td>
+        </tr>
+        <tr>&nbsp;</tr>
+        <tr>
+          <td>Total Charges</td>
+
+          <td>{{ this.invoice | currency }}</td>
+        </tr>
+      </table>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+
+    <button mat-raised-button color="secondary" onclick="window.print()">Save as PDF<mat-icon class="print-icon">print</mat-icon></button>
+
+    <button mat-raised-button color="accent" matDialogClose="confirm">
+      <mat-icon color="secondary">done</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

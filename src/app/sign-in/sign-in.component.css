@@ -1,0 +1,29 @@
+/*
+ ============================================
+; Title:  sign-in.component.css
+; Author: Professor Krasso
+; Date: 01 March 2021
+; Modified By: Marie Nicole Barleta
+; Description: sign-in styling
+;===========================================
+**/
+
+
+/* Main sign-in container style */
+.signin-container {
+  width: 35%;
+  margin: auto;
+}
+
+.signin-container > mat-card-title, mat-card-subtitle {
+  text-align: center;
+}
+
+
+/* Error message style */
+.msg-error {
+  margin: 10px 0px;
+  padding: 12px;
+  color: #D8000C;
+  background-color: #FFD2D2;
+}

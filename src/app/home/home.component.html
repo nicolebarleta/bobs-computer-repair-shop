@@ -1,0 +1,49 @@
+<!---
+ ============================================
+; Title:  home.component.html
+; Author: Professor Krasso
+; Date: 01 March 2021
+; Modified By: Marie Nicole Barleta
+; Description: This is where the employees can Complete the invoice orders
+;===========================================
+-->
+
+<!--
+  ; The form calculates the selected services as well as the
+  ; additional fees, the additional services fees are the out of
+  ; bob's repair shop specialization the labor per hour is $50,
+  ; the employee will enter the amount of hour and the once
+  ; the calculateResults function is triggered the additional hours
+  ; will be multiplied by 50.
+-->
+<div class="Invoice">
+<mat-card-title class="title">SERVICES</mat-card-title>
+
+<form [formGroup]="servicesForm">
+  <mat-list>
+    <mat-list-item *ngFor="let item of services_list">
+      <mat-checkbox color="warn" (change)="list_change(item)">{{ item.name }} ({{ item.price | currency }})</mat-checkbox>
+    </mat-list-item>
+  </mat-list>
+<br /><br />
+ <mat-card-title class="title">ADDITIONAL FEES</mat-card-title>
+    <mat-form-field appearance="fill">
+      <mat-label>Parts fees</mat-label>
+
+      <input type="number" (keypress)="keyPressNumbersDecimal($event)" name="parts" matInput formControlName="parts" placeholder="Enter Total Value of Parts..." />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Additional services fees</mat-label>
+
+      <input type="number" (keypress)="keyPressNumbersDecimal($event)" name="parts" matInput formControlName="labor" placeholder="Labor $50.00/hour" />
+    </mat-form-field>
+</form>
+
+<!-- The Complete Invoice Order will calculate the selected items and
+  additional fees if there is one.
+-->
+  <button class="submit" mat-raised-button color="accent" (click)="calculateResults()">
+    <h2>Complete Invoice Order</h2>
+  </button>
+</div>

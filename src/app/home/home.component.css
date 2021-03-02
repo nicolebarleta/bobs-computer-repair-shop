@@ -1,0 +1,20 @@
+/*
+ ============================================
+; Title:  home.component.css
+; Author: Professor Krasso
+; Date: 01 March 2021
+; Modified By: Marie Nicole Barleta
+; Description: Home styling
+;===========================================
+**/
+
+
+
+.Invoice{
+  margin-left: 15rem;
+}
+
+.submit{
+  width: 20rem;
+  margin-left: 20rem;
+}

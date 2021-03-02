@@ -1,0 +1,48 @@
+<!---
+ ============================================
+; Title:  calculate services.component.html
+; Author: Professor Krasso
+; Date: 01 March 2021
+; Modified By: Marie Nicole Barleta
+; Description: Users can calculate the services that they want for the future
+;===========================================
+-->
+
+
+<div fxLayout="row" fxLayoutAlign="center stretch" >
+
+    <mat-card class='mat-elevation-z0'>
+
+      <mat-card-title>
+        Select Services for Estimation:
+      </mat-card-title>
+
+      <br>
+
+      <mat-card-content>
+        <mat-list>
+           <!--
+             ;ngFor looping on the item of services declared from the ts file
+             ; the checkbox changes through the changeSelection function,
+             ; it accepts the selectedItems and is data binded from label of the item.
+          -->
+          <mat-list-item *ngFor="let item of services">
+            <mat-checkbox color="warn" [(ngModel)]="item.selectedService" (change)="changeSelection()">
+              {{item.label}}
+            </mat-checkbox>
+          </mat-list-item>
+
+          <br /> <br />
+
+        </mat-list>
+        <!--
+          The total is data binded from the ts file.
+        -->
+          <mat-card-title>Estimated total:  {{this.total}}</mat-card-title>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Information about the estimation of services to be clear with users -->
+  <mat-card-subtitle>*Additional costs for parts, outside of specialized services labor and taxes by end of service may be applied by an employee at checkout.
+                      <br> *This estimation serves as a guide for future repair needs.
+  </mat-card-subtitle>
